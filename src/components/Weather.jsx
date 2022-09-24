@@ -24,7 +24,7 @@ const Weather = () => {
             console.log(err)
             setError(true)
           });
-      },[callApi , city]);
+      },[callApi);
       
 
 
