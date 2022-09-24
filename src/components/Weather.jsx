@@ -24,8 +24,9 @@ const Weather = () => {
             console.log(err)
             setError(true)
           });
-      },[callApi);
+      },[callApi , city]);
       
+      console.log(weatherInfo)
 
 
 
@@ -45,13 +46,14 @@ const Weather = () => {
 
   return (
     <React.Fragment>
-<div className="box">
+<div className="box container mt-4">
+<h1 className='text-center'>Weather App - Jehanzeb</h1>
 <div className="inputfield">
 <form onSubmit={handleForm}>
 
     <input type="search"  onChange={(e)=>{
         setCity(e.target.value)
-    }} className="inp" value={city} placeholder="Enter City"/>
+    }} className="inp form-control mt-5" value={city} placeholder="Enter City"/>
 </form>
 </div>
 
@@ -63,13 +65,14 @@ const Weather = () => {
 <div className="clouds">
 
 </div>
-<i className="fa-solid fa-clouds"></i>
 
-   <h1>{weatherInfo.main.temp}</h1>
+
+
+<h1 style={{textAlign : "center" , color:"blue"}} className="mt-5">{weatherInfo.main.temp} <sup>o</sup>C</h1>
 
 </section>
  ) : (
-         <p>not found</p>
+         <h1 className='text-center mt-5' style={{color : "red"}}>not found</h1>
 )}
 </div>
 
